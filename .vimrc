@@ -9,7 +9,7 @@ syntax on                       " enable syntax highlighting
 set nocompatible                " turn off vi compatibility
 set showmode                    " always show what mode we're currently in
 set nowrap                      " don't wrap lines
-set tabstop=2                   " tab = 2 spaces (Pathfinder standard)
+set tabstop=2                   " tab = 2 spaces
 set softtabstop=2               " when using <backspace>, treat 2 spaces as a tab
 set expandtab                   " expand tabs into spaces
 set shiftwidth=2                " number of spaces to use when autoindenting
@@ -25,7 +25,7 @@ set scrolloff=5                 " keep 5 lines off the edges of the screen when 
 set nohlsearch                  " turn off highlighting for searched expressions
 set incsearch                   " highlight as we search, however
 set matchtime=5                 " blink matching cars for .x seconds
-set textwidth=120               " 120 columns limit (Pathfinder standard)
+set textwidth=120               " 120 columns limit
 set fo+=t                       " enable textwrapping in formatoptions
 set showcmd                     " shows what you are typing as a command
 set wildmenu                    " tab completion
@@ -41,12 +41,9 @@ set visualbell                  " no annoying sounds
 
 set clipboard=unnamed           " share yank registers (copy and paste from one terminal to another)
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode 
-"set paste                       " don't indent each line when pasting
+set paste                       " don't indent each line when pasting
 set ruler                       " show line numbers on the left side
                                 " note: this only seems to work if placed after 'set paste'
-
-" Print options
-set printoptions=paper:A4,syntax:y,wrap:y,duplex:long,number:y
 
 filetype plugin on              " enable loading of plugins for particular filetypes
 
@@ -57,5 +54,3 @@ set undolevels=1000             " how many undos to save
 set undoreload=10000            " number of lines to save for undo
 
 set autochdir                   " when opening a file in a buffer, chdir to the location of that file
-set t_Co=256                    " use 256 colors in terminal
-
