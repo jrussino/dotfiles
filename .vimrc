@@ -25,7 +25,7 @@ set scrolloff=5                 " keep 5 lines off the edges of the screen when 
 set nohlsearch                  " turn off highlighting for searched expressions
 set incsearch                   " highlight as we search, however
 set matchtime=5                 " blink matching cars for .x seconds
-set textwidth=120               " 120 columns limit
+set textwidth=79                " columns limit
 set fo+=t                       " enable textwrapping in formatoptions
 set showcmd                     " shows what you are typing as a command
 set wildmenu                    " tab completion
