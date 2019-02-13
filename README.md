@@ -2,5 +2,7 @@
 Repository for my commonly-used configuration files.
 
 Contains config files for:
-* vim
+* chunkwm
+* i3
 * tmux
+* vim
