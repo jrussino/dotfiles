@@ -16,7 +16,8 @@ set shiftwidth=2                " number of spaces to use when autoindenting
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent                  " automatically indent
 set copyindent                  " copy previous indenting on autoindent
-set number                      " always show line numbers
+"set number                      " always show line numbers
+set number relativenumber                      " always show line numbers
 set showmatch                   " show matching parenthesis
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
@@ -54,3 +55,10 @@ set undolevels=1000             " how many undos to save
 set undoreload=10000            " number of lines to save for undo
 
 set autochdir                   " when opening a file in a buffer, chdir to the location of that file
+
+" Use relative (hybrid) numbers in command mode, absolute numbers in insert mode
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
