@@ -42,7 +42,7 @@ set visualbell                  " no annoying sounds
 
 set clipboard=unnamed           " share yank registers (copy and paste from one terminal to another)
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode 
-set paste                       " don't indent each line when pasting
+"set paste                       " don't indent each line when pasting
 set ruler                       " show line numbers on the left side
                                 " note: this only seems to work if placed after 'set paste'
 
@@ -62,3 +62,11 @@ augroup numbertoggle
 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
+
+" Temporary for 2019-03-24
+" set spell
+
+" Status line - added 2019-04-10
+set laststatus=2
+
+set tags=./tags;,tags;        " search for tags files upward from the current directory until one is found
