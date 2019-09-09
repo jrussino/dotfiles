@@ -9,10 +9,7 @@ syntax on                       " enable syntax highlighting
 set nocompatible                " turn off vi compatibility
 set showmode                    " always show what mode we're currently in
 set nowrap                      " don't wrap lines
-set tabstop=2                   " tab = 2 spaces
-set softtabstop=2               " when using <backspace>, treat 2 spaces as a tab
 set expandtab                   " expand tabs into spaces
-set shiftwidth=2                " number of spaces to use when autoindenting
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent                  " automatically indent
 set copyindent                  " copy previous indenting on autoindent
@@ -70,3 +67,9 @@ augroup END
 set laststatus=2
 
 set tags=./tags;,tags;        " search for tags files upward from the current directory until one is found
+
+" Tabs to spaces - added 2019-09-09
+let spaces_per_tab=2            " just change this one
+let &tabstop=spaces_per_tab     " tab = this many spaces
+let &softtabstop=spaces_per_tab " when using <backspace>, treat this many spaces as a tab
+let &shiftwidth=spaces_per_tab  " number of spaces to use when autoindenting
