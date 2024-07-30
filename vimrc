@@ -13,8 +13,6 @@ set expandtab                   " expand tabs into spaces
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent                  " automatically indent
 set copyindent                  " copy previous indenting on autoindent
-"set number                      " always show line numbers
-set number relativenumber                      " always show line numbers
 set showmatch                   " show matching parenthesis
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
@@ -40,9 +38,6 @@ set visualbell                  " no annoying sounds
 set clipboard=unnamed           " share yank registers (copy and paste from one terminal to another)
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode 
 "set paste                       " don't indent each line when pasting
-set ruler                       " show line numbers on the left side
-                                " note: this only seems to work if placed after 'set paste'
-
 filetype plugin on              " enable loading of plugins for particular filetypes
 
 " Persistent undo
@@ -53,12 +48,6 @@ set undoreload=10000            " number of lines to save for undo
 
 set autochdir                   " when opening a file in a buffer, chdir to the location of that file
 
-" Use relative (hybrid) numbers in command mode, absolute numbers in insert mode
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
 
 " Temporary for 2019-03-24
 " set spell
@@ -73,3 +62,21 @@ let spaces_per_tab=2            " just change this one
 let &tabstop=spaces_per_tab     " tab = this many spaces
 let &softtabstop=spaces_per_tab " when using <backspace>, treat this many spaces as a tab
 let &shiftwidth=spaces_per_tab  " number of spaces to use when autoindenting
+
+
+" Line number management
+set ruler                       " view line numbers on the left side
+set number                      " show line numbers
+set relativenumber              " show line numbers relative to the current line
+let numbermode=1                " 0 = line numbers off, 1 = line numbers on "
+
+" commands to enable/disable line numbers
+command Non set number relativenumber | let numbermode=1
+command Noff set nonumber norelativenumber | let numbermode=0
+
+" Use relative (hybrid) numbers in command mode, absolute numbers in insert mode
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * if (numbermode == 1) | set relativenumber | endif
+	autocmd BufLeave,FocusLost,InsertEnter * if (numbermode == 1) | set norelativenumber | endif
+augroup END
